@@ -16,9 +16,10 @@ const SearchHero=()=>{
     main_image.classList.remove("imgnone");
     let search_name=input.value;
     fetch(`${main_url}/search/${search_name}`).then(response=> response.json()).then(json=> {
-        console.log(json.results[0].powerstats)
+        console.log(json.results[0])
         main_image.innerHTML=`<img src="${json.results[0].image.url}" />
-                                <h1 class="name" id="name"> ${json.results[0].name}</h1>`;
+                                <h1 class="name" id="name"> ${json.results[0].name}<br>
+                                <span id="fullname" > ${json.results[0].biography["full-name"]}</h1>`;
         power.innerText=`${json.results[0].powerstats.power}`
         combat.innerText=`${json.results[0].powerstats.combat}`
         speed.innerText=`${json.results[0].powerstats.speed}`
