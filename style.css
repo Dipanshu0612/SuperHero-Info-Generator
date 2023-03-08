@@ -20,6 +20,9 @@ body{
 .head{
     text-align: center;
 }
+.heading p{
+    text-align: center;
+}
 
 @media screen and (max-width: 1000px) {
     .header{
@@ -29,6 +32,8 @@ body{
 }
 
 .search{
+    display: flex;
+    flex-wrap: wrap;
     margin-right: 2rem;
     margin-top: 1rem;
 }
@@ -144,4 +149,69 @@ body{
 }
 .social a:hover{
 box-shadow: 0 0 1rem cyan;
+}
+
+@media screen and (max-width: 571px) {
+    .footer{
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+    .footertxt{
+        font-size: 0.9rem;
+    }
+    .social{
+        margin-bottom: 1rem;
+    }
+    .social a{
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .maincont .stats{
+        grid-template-columns: repeat(3,7rem);
+        grid-template-rows: repeat(2,7rem);   
+    }
+    .statbox{
+        font-size: 1rem;
+    }
+    .statbox span{
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width:390px) {
+    .maincont .stats{
+        grid-template-columns: repeat(3,6rem);
+        grid-template-rows: repeat(2,6rem);   
+    }
+    .statbox{
+        font-size: 1rem;
+    }
+    .statbox span{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width:470px) {
+    .search{
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .search input{
+        width: 90%;
+    }
+    .search-btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.5rem;
+    }
+    /* #searchbtn,#randombtn{
+        margin: 2rem;
+    } */
 }
