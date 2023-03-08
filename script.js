@@ -15,18 +15,32 @@ let input=document.getElementById("user-input");
 const SearchHero=()=>{
     main_image.classList.remove("imgnone");
     let search_name=input.value;
-    fetch(`${main_url}/search/${search_name}`).then(response=> response.json()).then(json=> {
-        console.log(json.results[0])
-        main_image.innerHTML=`<img src="${json.results[0].image.url}" />
-                                <h1 class="name" id="name"> ${json.results[0].name}<br>
-                                <span id="fullname" > ${json.results[0].biography["full-name"]}</h1>`;
-        power.innerText=`${json.results[0].powerstats.power}`
-        combat.innerText=`${json.results[0].powerstats.combat}`
-        speed.innerText=`${json.results[0].powerstats.speed}`
-        strength.innerText=`${json.results[0].powerstats.strength}`
-        durability.innerText=`${json.results[0].powerstats.durability}`
-        intelligence.innerText=`${json.results[0].powerstats.intelligence}`
-    })
+    fetch(`${main_url}/search/${search_name}`).then(response=> response.json()).then(json => {
+            let flag=0;
+            json.results.forEach(result=>
+                {
+                // console.log(result.name);
+                // console.log(input.value);
+                    if(result.name==input.value && flag==0){
+                        flag=1;
+                        console.log(result)
+                        main_image.innerHTML=`<img src="${result.image.url}" />
+                                                <h1 class="name" id="name"> ${result.name}<br>
+                                                <span id="fullname" > ${result.biography["full-name"]}</h1>`;
+                        power.innerText=`${result.powerstats.power}`
+                        combat.innerText=`${result.powerstats.combat}`
+                        speed.innerText=`${result.powerstats.speed}`
+                        strength.innerText=`${result.powerstats.strength}`
+                        durability.innerText=`${result.powerstats.durability}`
+                        intelligence.innerText=`${result.powerstats.intelligence}`
+                    }
+                    else{
+                        // alert('Not Found!')
+                    }
+                }
+            )}
+        )
+
 }
 
 SearchBtn.onclick=()=> SearchHero();
