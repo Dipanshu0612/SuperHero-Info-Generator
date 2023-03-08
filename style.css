@@ -103,12 +103,14 @@ body{
     text-align: center;
     background: rgb(53, 141, 188);
     border-radius: 10%;
+    transition: .1s ease-in;
 }
 .statbox span{
     font-size: 4rem;
     font-weight: 600;
 }
 .statbox:hover{
+    transform: scale(1.1);
     border: 2px solid cyan;
     box-shadow: 0 0 1rem rgb(53, 141, 188);
 }
